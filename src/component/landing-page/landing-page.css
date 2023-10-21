@@ -1,0 +1,13 @@
+.background {
+  background-image: url("../src/assets/jpeg/office 1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;
+  align-items: center; */
+  color: white;
+  text-align: center;
+  border: solid 2px red;
+}
