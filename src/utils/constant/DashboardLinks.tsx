@@ -4,6 +4,7 @@ import { HiOutlineBriefcase } from "react-icons/hi2";
 import { TbSettings2 } from "react-icons/tb";
 
 
+
 export const DASHBOARD_SIDE_BAR_LINKS = [
   {
     key: "dashboard",
@@ -15,7 +16,7 @@ export const DASHBOARD_SIDE_BAR_LINKS = [
   {
     key: "request",
     label: "Request",
-    path: "/request",
+    path: "/requestAccordion",
     icon: <BsPeople />,
   },
 

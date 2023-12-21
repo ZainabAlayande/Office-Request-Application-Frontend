@@ -4,9 +4,13 @@ import AdminRegistrationPage from "./component/admin/registration-page"
 import LoginPage from "./component/admin/Login";
 import ForgotPassword from "./component/admin/ForgotPassword";
 import Dashboard from "./component/admin/Dashboard";
-import Request from "./component/admin/Request";
+import PendingRequest from "./component/admin/PendingRequest";
+import AssignedRequest from "./component/admin/AssignedRequest";
+import ApprovedRequest from "./component/admin/ApprovedRequest";
+import DeclinedRequest from "./component/admin/DeclinedRequest";
 import Profile from "./component/admin/Profile";
 import Settings from "./component/admin/Settings";
+import RequestAccordion from "./component/reusable/RequestAccordion";
 
 function App() {
 
@@ -19,9 +23,13 @@ function App() {
             <Route path="/login" element={<LoginPage />}></Route>
             <Route path="/forgot-password" element={<ForgotPassword />}></Route>  
             <Route path="/dashboard" element={<Dashboard />}></Route>  
-            <Route path="/request" element={<Request />}></Route>  
+            <Route path="/request/pending" element={<PendingRequest />}></Route> 
+            <Route path="/request/assigned" element={<AssignedRequest />}></Route> 
+            <Route path="/request/approved" element={<ApprovedRequest />}></Route> 
+            <Route path="/request/declined" element={<DeclinedRequest />}></Route>  
             <Route path="/profile" element={<Profile />}></Route>  
-            <Route path="/settings" element={<Settings />}></Route>            
+            <Route path="/settings" element={<Settings />}></Route>  
+            <Route path="/requestAccordion" element={<RequestAccordion />}></Route>            
           </Routes>
       </BrowserRouter>
 
