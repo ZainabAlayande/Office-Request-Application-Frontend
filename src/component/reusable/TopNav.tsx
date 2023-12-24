@@ -24,18 +24,18 @@ const TopNav = () => {
 
       <div className="flex flex-shrink-0 h-8">
         <div className="">
-          <img src={NotificationIcon} alt="Notification Icon" className="w-5 h-5 m-2 mt-1 border-r -mr-1"/>
+          <img src={NotificationIcon} alt="Notification Icon" className="w-5 h-5 m-2 mt-1 cursor-pointer border-r -mr-1"/>
         </div>
 
         <div className="flex flex-shrink-0 m-2 mt-3 -mr-2">
           <img src={LMCLogo2} alt="Cooperative Logo" className="w-8 h-6 -mt-2"/>
           <div className="flex flex-row flex-shrink-0 ml-2 -mt-2.5">
             <div>
-              <p className="cooperative-name">LMC</p>
-              <p className="cooperative-name-two">LMC Cooporation</p>
+              <p className="cooperative-name">Spedial</p>
+              <p className="cooperative-name-two">Spedial Cooporation</p>
             </div>
             <div className="mt-1 -mr-1">
-              <img src={ArrowOptions} alt="Options"/>
+              <img src={ArrowOptions} alt="Options" className="cursor-pointer"/>
             </div>
           </div>
         </div>

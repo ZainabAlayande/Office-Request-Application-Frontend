@@ -13,28 +13,28 @@ const RequestAccordion = () => {
 
   return (
     <div className="">
-        <ul className="border-l pl-3 ml-6">
+        <ul className="border-l pl-3 ml-16">
           
           <div>
-          <li className="mb-2 cursor-pointer" onClick={toggleRequest}>
+          <li className="mb-2 cursor-pointer text-gray-500 hover:bg-blue-100 sidebar-request-link" onClick={toggleRequest}>
           <Link to="/request/pending">Pending</Link>
           </li>
           </div>
           
-          <div className='mb-2 cursor-pointer'>
-          <li className="" onClick={toggleRequest}>
+          <div className='mb-2 cursor-pointer '>
+          <li className="sidebar-request-link text-gray-500 hover:bg-blue-100" onClick={toggleRequest}>
           <Link to="/request/assigned">Assigned</Link>
           </li>
           </div>
 
           <div className='mb-2 cursor-pointer'>
-          <li className="" onClick={toggleRequest}>
+          <li className="sidebar-request-link text-gray-500 hover:bg-blue-100" onClick={toggleRequest}>
           <Link to="/request/approved">Approved</Link>
           </li>
           </div>
 
           <div className='cursor-pointer'>
-          <li className="mb-2 cursor-pointer" onClick={toggleRequest}>
+          <li className="mb-2 cursor-pointer text-gray-500 hover:bg-blue-100 sidebar-request-link" onClick={toggleRequest}>
           <Link to="/request/declined">Declined</Link>
           </li>
           </div>
