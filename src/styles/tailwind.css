@@ -24,6 +24,17 @@
     font-weight: normal;
   }
 
+  .activities-heading {
+    font-family: 'EuclidCircularA', sans-serif;
+    font-size: 15x;
+    font-weight: normal;
+  }
+
+  .recent-activities-data {
+    font-family: 'EuclidCircularA', sans-serif;
+    font-size: 14px;
+  }
+
   .cooperative-name {
     font-family: 'EuclidCircularA', sans-serif;
     font-size: 13px;
@@ -32,9 +43,8 @@
 
 .request-style {
     font-family: 'EuclidCircularA', sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    text-align: left;
+    font-size: 17px;
+    font-weight: bold;
   }
   
   .sidebar-link{
