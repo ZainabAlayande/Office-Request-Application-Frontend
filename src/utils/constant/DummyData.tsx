@@ -1,99 +1,88 @@
 export const PENDING_DATA = [
     {
-      activity: "Loan Repayment",
+      activity: "Finance",
       memberId: "LIMC4578230",
       fullName: "Asisat Oshoala",
-      amount: "N5000",
       date: "2023-01-05 | 09:45 AM",
       status: "Pending",
     },
   
     {
-      activity: "Withdrawal",
+      activity: "Technology",
       memberId: "LIMC6740900",
       fullName: "Obi Chinedu",
-      amount: "N25,000",
       date: "2023-01-05 | 09:45 AM",
       status: "Pending",
     },
   
     {
-      activity: "Loan Approval",
+      activity: "Human Resource",
       memberId: "LIMC4570900",
       fullName: "Reece James",
-      amount: "N45,000",
       date: "2023-01-05 | 09:45 AM",
       status: "Pending",
     },
   
     {
-      activity: "Savings",
+      activity: "Legal",
       memberId: "LIMC67309128",
       fullName: "Declan Rice",
-      amount: "N200,000",
       date: "2023-01-05 | 09:45 AM",
       status: "Pending",
     },
   
     {
-      activity: "New Member",
+      activity: "Finance",
       memberId: "LIMC4578230",
       fullName: "Walter White",
-      amount: "----------",
-      date: "2023-01-05 | 09:45 AM",
-      status: "----------",
-    },
-  
-    {
-      activity: "Withdrawal",
-      memberId: "LIMC9218000",
-      fullName: "Kunle Adebayo",
-      amount: "N20,000",
       date: "2023-01-05 | 09:45 AM",
       status: "Pending",
     },
   
     {
-      activity: "Loan Repayment",
+      activity: "Finance",
+      memberId: "LIMC9218000",
+      fullName: "Kunle Adebayo",
+      date: "2023-01-05 | 09:45 AM",
+      status: "Pending",
+    },
+  
+    {
+      activity: "Technology",
       memberId: "LIMC4578230",
       fullName: "Asisat Oshoala",
-      amount: "N5000",
       date: "2023-01-05 | 09:45 AM",
       status: "Pending",
     },
 
     {
-        activity: "Savings",
+        activity: "Hospitality",
         memberId: "LIMC67309128",
         fullName: "Declan Rice",
-        amount: "N200,000",
         date: "2023-01-05 | 09:45 AM",
         status: "Pending",
       },
     
       {
-        activity: "New Member",
+        activity: "Water Resources",
         memberId: "LIMC4578230",
         fullName: "Walter White",
-        amount: "----------",
         date: "2023-01-05 | 09:45 AM",
         status: "----------",
       },
     
       {
-        activity: "Withdrawal",
+        activity: "Finance",
         memberId: "LIMC9218000",
         fullName: "Kunle Adebayo",
-        amount: "N20,000",
         date: "2023-01-05 | 09:45 AM",
         status: "Pending",
       },
     
       {
-        activity: "Loan Repayment",
+        activity: "Water Resource",
         memberId: "LIMC4578230",
-        fullName: "Asisat Oshoala",
-        amount: "N5000",
+        fullName: "Akpabio Motayo",
         date: "2023-01-05 | 09:45 AM",
         status: "Pending",
       },

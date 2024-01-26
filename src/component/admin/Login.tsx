@@ -1,12 +1,42 @@
 import React from "react";
+import { useState } from "react";
 import "tailwindcss/tailwind.css";
 import "../../index.css";
+// import { Link } from "react-router-dom";
 import Image from "../../assets/svg/registration-page.svg";
 import Logo from "../../assets/svg/orm-resized-logo.svg";
 import EyeIcon from "../../assets/svg/eye-icon.svg";
 import ArrowBack from "../../assets/png/arrow-back.png"
+import { LoginUser } from "../../utils/apis/APICall";
 
 const LoginPage: React.FC = () => {
+
+  const initialData = {
+    email: "",
+    password: ""
+  }
+
+  const [data, setData] = useState(initialData);
+
+  function handleLogin() {
+    try {
+      const response = LoginUser(data);
+      console.log("data -> ", data)
+      console.log(response)
+    } catch(error) {
+      console.log(error);
+    }
+  }
+
+
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setData({
+      ...data,
+      [event.target.name]: event.target.value
+    })
+  }
+
+
   return (
     <div className="flex h-screen overflow-y-hidden pt-0">
       <div className="w-1/2 bg-blue-600 flex items-center justify-center">
@@ -27,13 +57,16 @@ const LoginPage: React.FC = () => {
         <img src={Logo} alt="Logo" className="h-48 w-32 -mt-6" />
         <h2 className="text-1xl font-bold pt-0 -mt-16">Welcome back!</h2>
         <br />
-        <form className="mt-0">
+        <form className="mt-0" onSubmit={(event) => event.preventDefault()}>
           <div className="mb-6">
             <label className="text-xs font-bold">Enter company email</label>{" "}
             <br />
             <input
               className="w-full h-10 px-4 rounded-md bg-gray-300 border-2 text-xs border-gray-300"
               placeholder="Company email"
+              type="email"
+              name="email"
+              onChange={handleChange}
             ></input>
           </div>
 
@@ -46,6 +79,8 @@ const LoginPage: React.FC = () => {
                 type="password"
                 className="w-full h-10 px-4 rounded-md bg-gray-300 border-2 border-gray-300 text-xs"
                 placeholder="Password"
+                name="password"
+                onChange={handleChange}
               />
               <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
                 <img
@@ -58,7 +93,7 @@ const LoginPage: React.FC = () => {
           </div>
 
           <div className="w-full h-10 px-4 rounded-md mb-2 bg-blue-600 cursor-pointer border-2 border-blue-600 text-white flex items-center justify-center font-bold">
-            <button type="submit">Login</button>
+            <button type="submit" onClick={handleLogin}>Login</button>
           </div>
         </form>
 
