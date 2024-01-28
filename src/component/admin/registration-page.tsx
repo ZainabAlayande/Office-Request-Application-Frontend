@@ -8,9 +8,31 @@ import Logo from "../../assets/svg/orm-resized-logo.svg";
 import EyeIcon from "../../assets/svg/eye-icon.svg";
 import ArrowBack from "../../assets/png/arrow-back.png";
 import { RegisterUser } from "../../utils/apis/APICall";
+// import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
-const RegistrationPage: React.FC = () => {
+const RegistrationPage = () => {
+
+
+  const handleRegistration = async () => {
+    try {
+      const response = await RegisterUser(data);
+      console.log("Registration successful:", response.data);
+      if (response.status === true) {
+        console.log("hello");
+        alert("Registration successful, kindly login");
+        window.location.href = "/login";
+      } else {
+        alert("Registration failed");
+        window.location.href = "/admin-registration";
+      }
+      
+    } catch (error) {
+      console.error("Registration failed:", error);
+      
+    } 
+  };
 
   const initialData = {
     name: "",
@@ -22,26 +44,12 @@ const RegistrationPage: React.FC = () => {
   const [data, setData] = useState(initialData);
   const [showPassword, setShowPassword] = useState(false);
 
-
-  const handleRegistration = async () => {
-    try {
-      const response = await RegisterUser(data);
-      console.log("Registration successful:", response);
-      
-    } catch (error) {
-      console.error("Registration failed:", error);
-      
-    }
-    
-  };
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setData({
       ...data,
       [event.target.name]: event.target.value,
     });
   };
-
 
 
   return (
@@ -143,7 +151,7 @@ const RegistrationPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="w-full h-10 px-4 rounded-md mb-2 bg-blue-600 cursor-pointer border-2 border-blue-600 text-white flex items-center justify-center font-bold">
+          <div className="w-full h-10 px-4 rounded-md mb-2 bg-blue-600 cursor-pointer hover:bg-blue-400 hover:border-blue-400 cursor-pointer border-2 border-blue-600 text-white flex items-center justify-center font-bold">
             <button type="submit" onClick={handleRegistration}>Register</button>
           </div>
         </form>

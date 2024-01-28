@@ -10,7 +10,7 @@ import "../../styles/tailwind.css";
 import Rechart from "../charts/Rechart";
 
 
-  const DashboardBody = () => {
+  const DashboardBody = ({data}) => {
 
     // const percentage = 66;
       return (
@@ -19,12 +19,12 @@ import Rechart from "../charts/Rechart";
           <div className="dashboard-overview">Dashboard Overview</div>
           <div className="mt-3 h-28 flex flex-row flex-shrink-0">
 
-          <div className="bg-white p-3 w-48 h-full rounded-xl">
+          <div className="bg-white  p-3 w-64 h-36 rounded-xl">
           <div className="h-32  p-0 ">
-                <div className="p-0 flex justify-between mb-2">
+                <div className="p-2 flex justify-between">
                   <div>
                     <p className="card-title">Pending Request</p>
-                    <p className="mt-5 w-full card-number">25</p>
+                    <p className="mt-9 w-full text-[#0079FF] card-number">25</p>
                   </div>
                   <div
                     className="ml-4 h-7 w-10 rounded-md items-center"
@@ -40,12 +40,12 @@ import Rechart from "../charts/Rechart";
           </div>
 
 
-            <div className="bg-white p-3 ml-7 w-46 h-full rounded-xl ">
+            <div className="bg-white p-2.5 ml-3 w-64 h-36 rounded-xl ">
               <div className="h-32  p-0 ">
-                <div className="p-0 flex justify-between mb-2">
+                <div className="p-2 flex justify-between">
                   <div>
                     <p className="card-title">Assigned Request</p>
-                    <p className="mt-5 w-full card-number">25</p>
+                    <p className="mt-9 w-full text-[#FF6A24] card-number">25</p>
                   </div>
                   <div
                     className="ml-4 h-7 w-10 rounded-md items-center"
@@ -60,12 +60,12 @@ import Rechart from "../charts/Rechart";
               </div>
             </div>
 
-            <div className="bg-white p-3 ml-7 w-46 h-full rounded-xl ">
+            <div className="bg-white p-3 ml-5 w-72 h-36 rounded-xl ">
               <div className="h-32  p-0 ">
-                <div className="p-0 flex justify-between mb-2">
+                <div className="p-2 flex justify-between">
                   <div>
                     <p className="card-title">Approved Request</p>
-                    <p className="mt-5 w-full card-number">25</p>
+                    <p className="mt-9 w-full card-number text-[#0EBE8D]">25</p>
                   </div>
                   <div
                     className="ml-4 h-7 w-10 rounded-md items-center"
@@ -80,12 +80,12 @@ import Rechart from "../charts/Rechart";
               </div>
             </div>
 
-            <div className="bg-white p-3 ml-7 w-46 h-full rounded-xl ">
+            <div className="bg-white p-3 ml-2.5 w-72 h-36 rounded-xl ">
               <div className="h-32  p-0 ">
-                <div className="p-0 flex justify-between mb-2">
+                <div className="p-2 flex justify-between">
                   <div>
                     <p className="card-title">Declined Request</p>
-                    <p className="mt-5 w-full card-number">25</p>
+                    <p className="mt-9 w-full text-[#7838D6] card-number">25</p>
                   </div>
                   <div
                     className="ml-4 h-7 w-10 rounded-md items-center"
@@ -102,8 +102,8 @@ import Rechart from "../charts/Rechart";
             
           </div>
 
-          <div className="flex flex-row mt-3 h-96">
-          <div className="rounded-xl bg-white h-full w-6/12 mr-4">
+          <div className="flex flex-row mt-16 h-96">
+          <div className="rounded-xl bg-white border h-full w-6/12 mr-4">
           <div>
               <p className="p-3 chart-title">Top 5 Request Category </p>
             </div>
@@ -114,7 +114,7 @@ import Rechart from "../charts/Rechart";
             </div>
           </div>
 
-          <div className="rounded-xl bg-white h-full w-6/12">
+          <div className="rounded-xl border bg-white h-full w-6/12">
             <div className="">
               <p className="p-3 chart-title">Top 5 Highest Department</p>
             </div>

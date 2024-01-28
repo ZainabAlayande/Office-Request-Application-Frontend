@@ -8,8 +8,11 @@ import Logo from "../../assets/svg/orm-resized-logo.svg";
 import EyeIcon from "../../assets/svg/eye-icon.svg";
 import ArrowBack from "../../assets/png/arrow-back.png"
 import { LoginUser } from "../../utils/apis/APICall";
+// import { useNavigate } from "react-router-dom";
+import { toast } from 'react-hot-toast';
 
 const LoginPage: React.FC = () => {
+  // const navigate = useNavigate();
 
   const initialData = {
     email: "",
@@ -18,15 +21,43 @@ const LoginPage: React.FC = () => {
 
   const [data, setData] = useState(initialData);
 
-  function handleLogin() {
+  const handleLogin = async () => {
     try {
-      const response = LoginUser(data);
-      console.log("data -> ", data)
-      console.log(response)
-    } catch(error) {
-      console.log(error);
+      const response = await LoginUser(data);
+      if (response && response.access_token) {
+        const accessToken = response.access_token;
+        toast.success("Login successful");
+        localStorage.setItem("token", accessToken);
+        window.location.href = "/dashboard";
+      } else {
+        console.error("Login failed");
+        toast.success("Login failed: please try again");
+        window.location.href = "/login";
+      }
+    } catch (error) {
+      console.error("Login failed:", error);
     }
-  }
+  };
+  
+
+
+  // const handleLogin = async () => {
+  //   try {
+  //     const response = await LoginUser(data);
+  //     console.log("Login successful");
+  //     console.log("Response >>>> ", response);
+  //     console.log("Response.data >>>> ", response.data);
+  //     console.log("token >>>>> ", response.data.access_token);
+    
+  //     localStorage.setItem("token", response);
+  //     alert("Login successful");
+  //     window.location.href = "/dashboard";
+      
+  //     navigate("/dashboard");
+  //   } catch (error) {
+  //     console.error("Login failed:", error);   
+  //   } 
+  // };
 
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -92,7 +123,7 @@ const LoginPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="w-full h-10 px-4 rounded-md mb-2 bg-blue-600 cursor-pointer border-2 border-blue-600 text-white flex items-center justify-center font-bold">
+          <div className="w-full h-10 px-4 rounded-md mb-2 bg-blue-600 hover:bg-blue-400 hover:border-blue-400 cursor-pointer border-2 border-blue-600 text-white flex items-center justify-center font-bold">
             <button type="submit" onClick={handleLogin}>Login</button>
           </div>
         </form>

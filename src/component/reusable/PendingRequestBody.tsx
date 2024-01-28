@@ -1,9 +1,10 @@
+import * as React from 'react'
 import "../../styles/tailwind.css"
 import { PENDING_DATA } from "../../utils/constant/DummyData";
 import {getStatusColor, getTextColor} from "../../utils/func/ReusableFunctions";
 
 
-const PendingRequestBody = () => {
+const PendingRequestBody: React.FC = () => {
 
   return (
     <div className="ml-4">   

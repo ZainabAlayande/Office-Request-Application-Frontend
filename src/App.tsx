@@ -11,6 +11,7 @@ import DeclinedRequest from "./component/admin/DeclinedRequest";
 import Profile from "./component/admin/Profile";
 import Settings from "./component/admin/Settings";
 import RequestAccordion from "./component/reusable/RequestAccordion";
+// import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -29,7 +30,8 @@ function App() {
             <Route path="/request/declined" element={<DeclinedRequest />}></Route>  
             <Route path="/profile" element={<Profile />}></Route>  
             <Route path="/settings" element={<Settings />}></Route>  
-            <Route path="/requestAccordion" element={<RequestAccordion />}></Route>            
+            <Route path="/requestAccordion" element={<RequestAccordion />}></Route>   
+                    
           </Routes>
       </BrowserRouter>
 

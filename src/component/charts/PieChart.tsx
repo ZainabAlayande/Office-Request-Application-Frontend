@@ -1,9 +1,11 @@
-import { ResponsivePie } from '@nivo/pie'
+import { MayHaveLabel, ResponsivePie } from '@nivo/pie'
 
-
-const MyResponsivePie = ({ data  }) => (
+type Props={
+    data: readonly MayHaveLabel[]
+}
+const MyResponsivePie = (props: Props) => (
     <ResponsivePie
-        data={data}
+        data={props.data}
         margin={{ top: 40, right: 80, bottom: 120, left: 100 }}
         innerRadius={0.5}
         padAngle={0.7}

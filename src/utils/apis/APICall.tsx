@@ -3,7 +3,7 @@ import axios from "axios";
 export const BASE_URL = "http://localhost:8081";
 
 
-export const RegisterUser = async (employeeRegistrationDetails) => {
+export const RegisterUser = async (employeeRegistrationDetails: { name: string; email: string; password: string; confirmPassword: string; }) => {
     try {
       const url = BASE_URL + "/api/v1/company/register";
       const response = await axios.post(url, employeeRegistrationDetails);
@@ -14,7 +14,7 @@ export const RegisterUser = async (employeeRegistrationDetails) => {
     }
   };
 
-export const LoginUser = async (employeeLoginDetails) => {
+export const LoginUser = async (employeeLoginDetails: { email: string; password: string; }) => {
     try {
         const url = BASE_URL + "/login";
         const response = await axios.post(url, employeeLoginDetails);
@@ -23,5 +23,16 @@ export const LoginUser = async (employeeLoginDetails) => {
         console.error("Error in LoginUser:", error);
         throw error; 
       }
+} 
 
+
+export const DashboardDetails = async (token: string) => {
+  try {
+      const url = BASE_URL + "/dashboard";
+      const response = await axios.post(url, token);
+      return response.data; 
+    } catch (error) {
+      console.error("Error in LoginUser:", error);
+      throw error; 
+    }
 } 
