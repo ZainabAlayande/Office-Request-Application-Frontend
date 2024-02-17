@@ -1,6 +1,4 @@
 import React from "react";
-import "tailwindcss/tailwind.css";
-import "../../index.css";
 import Image from "../../assets/svg/registration-page.svg"
 import Logo from "../../assets/svg/orm-resized-logo.svg";
 import ArrowBack from "../../assets/png/arrow-back.png";

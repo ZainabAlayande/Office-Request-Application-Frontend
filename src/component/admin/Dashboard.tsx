@@ -1,13 +1,13 @@
 import SideBar from "../reusable/Sidebar";
 import TopNav from "../reusable/TopNav";
 import DashboardBody from "../reusable/DashboardBody";
-import { useEffect, useState } from "react";
-import { DashboardDetails } from "../../utils/apis/APICall";
+import { useState } from "react";
 
 
 
 const Dashboard = () => {
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [dashboardData, setDashboardData] = useState(null);
 
   // useEffect(() => {

@@ -1,18 +1,16 @@
 import React from "react";
 import { useState } from "react";
-import "tailwindcss/tailwind.css";
-import "../../index.css";
-// import { Link } from "react-router-dom";
 import Image from "../../assets/svg/registration-page.svg";
 import Logo from "../../assets/svg/orm-resized-logo.svg";
 import EyeIcon from "../../assets/svg/eye-icon.svg";
 import ArrowBack from "../../assets/png/arrow-back.png"
 import { LoginUser } from "../../utils/apis/APICall";
-// import { useNavigate } from "react-router-dom";
-import { toast } from 'react-hot-toast';
+import { toast } from 'sonner';
 
 const LoginPage: React.FC = () => {
-  // const navigate = useNavigate();
+  
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const [loading, setLoading] = useState(false);
 
   const initialData = {
     email: "",
@@ -26,38 +24,27 @@ const LoginPage: React.FC = () => {
       const response = await LoginUser(data);
       if (response && response.access_token) {
         const accessToken = response.access_token;
-        toast.success("Login successful");
         localStorage.setItem("token", accessToken);
-        window.location.href = "/dashboard";
+        toast.success("Login Successful");
+        setLoading(true);
+        setTimeout(() => {
+          window.location.href = "/dashboard";
+        }, 5000);
       } else {
-        console.error("Login failed");
-        toast.success("Login failed: please try again");
-        window.location.href = "/login";
+        toast.error("Login failed: please try again");
+        setTimeout(() => {
+          window.location.href = "/login";
+        }, 5000);
       }
     } catch (error) {
       console.error("Login failed:", error);
+      toast.error("Login failed: please try again");
+        setTimeout(() => {
+          window.location.href = "/login";
+        }, 5000);
     }
   };
   
-
-
-  // const handleLogin = async () => {
-  //   try {
-  //     const response = await LoginUser(data);
-  //     console.log("Login successful");
-  //     console.log("Response >>>> ", response);
-  //     console.log("Response.data >>>> ", response.data);
-  //     console.log("token >>>>> ", response.data.access_token);
-    
-  //     localStorage.setItem("token", response);
-  //     alert("Login successful");
-  //     window.location.href = "/dashboard";
-      
-  //     navigate("/dashboard");
-  //   } catch (error) {
-  //     console.error("Login failed:", error);   
-  //   } 
-  // };
 
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {

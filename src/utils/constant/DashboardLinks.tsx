@@ -22,8 +22,8 @@ export const DASHBOARD_SIDE_BAR_LINKS = [
 
   {
     key: "loans",
-    label: "Profile",
-    path: "/profile",
+    label: "Employee",
+    path: "/employee",
     icon: <HiOutlineBriefcase />,
   },
 

@@ -6,7 +6,7 @@ import ORMLogo from "../../assets/svg/orm-logo.svg";
 import LMCLogo from "../../assets/svg/LMCLogo.svg";
 import { DASHBOARD_SIDE_BAR_LINKS } from "../../utils/constant/DashboardLinks";
 import RequestAccordion from "./RequestAccordion";
-import Profile from "../admin/Profile";
+import Profile from "../admin/Employee";
 
 
 const linkClasses =
@@ -42,7 +42,7 @@ const SideBar = () => {
         <div key={item.key}>
           <SideBarLink item={item} onClick={item.key === "request" ? toggleRequestAccordion : 
                                             item.key === "dashboard" ? handleNavigation("dashboard"):
-                                            item.key === "profile" ? handleNavigation("profile") :
+                                            item.key === "employee" ? handleNavigation("employee") :
                                             item.key === "settings" ? handleNavigation : undefined} />
            {item.key === "request" && isRequestAccordionOpen && <RequestAccordion />}
            {item.key === "dashboard" && <Link key={item.key} to="/dashboard"></Link>}

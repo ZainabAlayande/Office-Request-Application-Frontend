@@ -1,15 +1,13 @@
 import React from "react";
 import { useState } from "react";
-import "tailwindcss/tailwind.css";
-import "../../index.css";
 import { Link } from "react-router-dom";
 import Image from "../../assets/svg/registration-page.svg";
 import Logo from "../../assets/svg/orm-resized-logo.svg";
 import EyeIcon from "../../assets/svg/eye-icon.svg";
 import ArrowBack from "../../assets/png/arrow-back.png";
 import { RegisterUser } from "../../utils/apis/APICall";
-// import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'sonner';
+
 
 
 const RegistrationPage = () => {
@@ -20,17 +18,21 @@ const RegistrationPage = () => {
       const response = await RegisterUser(data);
       console.log("Registration successful:", response.data);
       if (response.status === true) {
-        console.log("hello");
-        alert("Registration successful, kindly login");
-        window.location.href = "/login";
+        toast.success("Registration successful, Proceed to login");
+        setTimeout(() => {
+          window.location.href = "/login";
+        }, 5000);
       } else {
-        alert("Registration failed");
-        window.location.href = "/admin-registration";
+        toast.error("Registration failed");
+        setTimeout(() => {
+          window.location.href = "/admin-registration";
+        }, 5000);
       }
-      
     } catch (error) {
-      console.error("Registration failed:", error);
-      
+      console.error("Registration failed:", error);  
+      setTimeout(() => {
+        window.location.href = "/admin-registration";
+      }, 5000);    
     } 
   };
 

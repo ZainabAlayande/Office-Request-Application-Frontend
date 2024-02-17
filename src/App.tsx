@@ -8,7 +8,7 @@ import PendingRequest from "./component/admin/PendingRequest";
 import AssignedRequest from "./component/admin/AssignedRequest";
 import ApprovedRequest from "./component/admin/ApprovedRequest";
 import DeclinedRequest from "./component/admin/DeclinedRequest";
-import Profile from "./component/admin/Profile";
+import Employee from "./component/admin/Employee";
 import Settings from "./component/admin/Settings";
 import RequestAccordion from "./component/reusable/RequestAccordion";
 // import 'react-toastify/dist/ReactToastify.css';
@@ -28,7 +28,7 @@ function App() {
             <Route path="/request/assigned" element={<AssignedRequest />}></Route> 
             <Route path="/request/approved" element={<ApprovedRequest />}></Route> 
             <Route path="/request/declined" element={<DeclinedRequest />}></Route>  
-            <Route path="/profile" element={<Profile />}></Route>  
+            <Route path="/employee" element={<Employee />}></Route>  
             <Route path="/settings" element={<Settings />}></Route>  
             <Route path="/requestAccordion" element={<RequestAccordion />}></Route>   
                     
