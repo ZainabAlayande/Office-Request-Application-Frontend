@@ -1,17 +1,35 @@
 import React from "react";
 import { useState } from "react";
+import AddEmployeeModal from "../modal/AddEmployeeModal";
+import Modal from 'react-modal';
+import {modalStyles} from "../../utils/func/ReusableFunctions";
+
 
 const EmployeeBody = () => {
+
+  const [modalOpen, setModalOpen] = useState(false);
   const [ismemberExist, setIsMemberExist] = useState(false);
+
+  const closeModal = () => {
+      setModalOpen(false);
+  }
+  
   return (
     <div className="p-5 border ml-5 mr-5 mt-5 rounded-md">
       <div class="flex flex-row justify-between mb-5">
         <div>All Employee</div>
         <div class="flex items-center">
           <div className="bg-blue-500 text-white font-bold py-1 px-3 rounded mr-2">
-            <button>Add Employee</button>
+            <button onClick={() => setModalOpen(true)}>Add Employee + </button>
           </div>
-          <div></div>
+          <div>
+            {modalOpen && (
+              <Modal isOpen={modalOpen} onRequestClose={closeModal} ariaHideApp={false} style={modalStyles}>
+                  <AddEmployeeModal />
+              </Modal>
+
+            )}
+          </div>
         </div>
       </div>
 
@@ -41,7 +59,9 @@ const EmployeeBody = () => {
 
       <div className="mt-5">
         {ismemberExist ? (
-            <div></div>
+            <div>
+              <MapList />
+            </div>
         ): (
             <div className="flex items-center justify-center text-center">No Employee</div>
         )}
@@ -52,3 +72,22 @@ const EmployeeBody = () => {
 };
 
 export default EmployeeBody;
+
+const MapList = (emailList) => {
+  return (
+    <div>
+      {emailList.map((email) => (
+        <div className="flex flex-row justify-between" key={email}>
+          <div className="flex flex-row">
+            <img src="" alt="No Image" />
+            <h2>{email}</h2>
+          </div>
+
+          <div>
+            <button>Remove</button>
+          </div>
+        </div>
+      ))}
+    </div>
+);
+}

@@ -27,4 +27,16 @@ export const getStatusColor = (status) => {
       return "";
     }
   };
+
+  export const modalStyles = {
+    content: {
+      width: '38%',
+      height: '60%',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      backgroundColor: '#FFFFFF',
+      borderRadius: '2%',
+    },
+  };
   

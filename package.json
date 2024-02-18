@@ -8,8 +8,10 @@
     "build": "tsc && vite build",
     "build:css": "postcss src/styles/tailwind.css -o src/index.css",
     "watch": "postcss src/styles/tailwind.css -o src/index.css --watch",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint:js": "eslint . --ext .js,.jsx",
+    "lint:css": "stylelint '**/*.css'",
+    "lint": "npm run lint:js && npm run lint:css"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -30,6 +32,7 @@
     "react-dom": "^17.0.2",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.12.0",
+    "react-modal": "^3.16.1",
     "react-router-dom": "^6.21.1",
     "react-toastify": "^9.1.2",
     "recharts": "^2.10.3",
