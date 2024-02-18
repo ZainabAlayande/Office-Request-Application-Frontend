@@ -12,3 +12,15 @@ export const SendInvite = async (emailList, headers) => {
       throw error; 
     }
   };
+
+
+  export const CheckIfMemberExist = async (headers) => {
+    try {
+      const url = BASE_URL + "/api/v1/checkIfMemberExist";
+      const response = await axios.post(url, {headers});
+      return response.data; 
+    } catch (error) {
+      console.error("Error in RegisterUser:", error);
+      throw error; 
+    }
+  };

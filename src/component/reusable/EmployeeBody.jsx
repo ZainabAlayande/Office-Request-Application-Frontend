@@ -1,18 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import AddEmployeeModal from "../modal/AddEmployeeModal";
 import Modal from 'react-modal';
 import {modalStyles} from "../../utils/func/ReusableFunctions";
+import { CheckIfMemberExist } from "../../utils/apis/EmployeApiCall";
 
 
 const EmployeeBody = () => {
 
   const [modalOpen, setModalOpen] = useState(false);
-  const [ismemberExist, setIsMemberExist] = useState(false);
+  const [ismemberExist, setMemberExist] = useState(false);
+  const [memberDetails, setMemberDetails] = useState([{}]);
 
   const closeModal = () => {
       setModalOpen(false);
   }
+
+  const checkIfMemberExist = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const headers = {
+        Authorization: `Bearer  ${token}`,
+      };
+      const response = await CheckIfMemberExist(headers);
+      setMemberDetails(response.data)
+      if (memberDetails.length > 0) {
+        setMemberExist(true);
+      }
+    } catch (error) {
+      toast.error("Couldn't send invite");
+    }
+  }
+
+  useEffect(() => {
+    checkIfMemberExist();
+  })
   
   return (
     <div className="p-5 border ml-5 mr-5 mt-5 rounded-md">
@@ -25,7 +47,7 @@ const EmployeeBody = () => {
           <div>
             {modalOpen && (
               <Modal isOpen={modalOpen} onRequestClose={closeModal} ariaHideApp={false} style={modalStyles}>
-                  <AddEmployeeModal />
+                  <AddEmployeeModal onDone={checkIfMemberExist}/>
               </Modal>
 
             )}
@@ -60,7 +82,7 @@ const EmployeeBody = () => {
       <div className="mt-5">
         {ismemberExist ? (
             <div>
-              <MapList />
+              <MapList emailList={memberDetails}/>
             </div>
         ): (
             <div className="flex items-center justify-center text-center">No Employee</div>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { SendInvite } from "../../utils/apis/EmployeApiCall";
 import { toast } from "sonner";
 
-const AddEmployeeModal = () => {
+const AddEmployeeModal = ({onDone}) => {
   const [emailString, setEmailString] = useState("");
   const [memberList, setMemberList] = useState(false);
 
@@ -21,8 +21,7 @@ const AddEmployeeModal = () => {
       };
       const response = await SendInvite(emailList, headers);
       toast.success(response.message);
-      setMemberList(true);
-      window.location.href("/")
+      onDone();
     } catch (error) {
       toast.error("Couldn't send invite");
     }
